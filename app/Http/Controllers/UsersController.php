@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Models\Passport\Token;
 use Validator;
 //use App\User;
 use App\Models\User;
