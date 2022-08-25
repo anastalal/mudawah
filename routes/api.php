@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 Route::group(['prefix' => 'v1'], function(){
-    Route::post('login', 'App\Http\Controllers\UsersController@login');
-    Route::post('register', 'App\Http\Controllers\UsersController@register');
-    Route::get('logout', 'App\Http\Controllers\UsersController@logout')->middleware('auth:api');
+    Route::post('login', 'UsersController@login');
+    Route::post('register', 'UsersController@register');
+    Route::get('logout', 'UsersController@logout')->middleware('auth:api');
    });
