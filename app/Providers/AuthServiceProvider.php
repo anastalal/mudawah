@@ -4,7 +4,7 @@ namespace App\Providers;
 use Laravel\Passport\Passport;
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
+use App\Models\Passport\Token;
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -30,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
        // Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
          Passport::loadKeysFrom(__DIR__.'/secrets/oauth');
         Passport::hashClientSecrets();
+        Passport::useTokenModel(Token::class);
         Passport::tokensExpireIn(now()->addDays(15));
     Passport::refreshTokensExpireIn(now()->addDays(30));
     Passport::personalAccessTokensExpireIn(now()->addMonths(6));
