@@ -42,7 +42,7 @@ class UsersController extends Controller
     $input = $request->all();
     $input['password'] = bcrypt($input['password']);
     $user = User::create($input);
-    $success['token'] = $user->createToken('appToken')->accessToken;
+    $success['token'] = Auth::user()->createToken('appToken')->accessToken;
     return response()->json([
      'success' => true,
      'token' => $success,
