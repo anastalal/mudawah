@@ -10,7 +10,11 @@ class UsersController extends Controller
 {
 
     public function index(){
-        return "hello world";
+      //  return "hello world";
+        return  UsersController::collection(User::all());
+    }
+    public function users(){
+        return  UsersController::collection(User::all());
     }
  public function login(){
   if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
